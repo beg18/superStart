@@ -1,0 +1,548 @@
+
+/*
+http://chimir.ru/post/39:
+@font-face mixin.Пример использования:
+@family: имя шрифта (обязательно).
+@filename: название шрифта, так же используется в качестве id для шрифта в формате svg
+(обязательно, по умолчанию используется имя шрифта).
+@weight: жирность шрифта (не обязательно, по умолчанию normal).
+@style: стиль шрифта (не обязательно, по умолчанию normal).
+
+.font-face(Roboto Slab, RobotoSlab-Bold, bold);
+ .font-face(@family, @filename: @family, @weight: normal, @style: normal){
+    @font-face{
+        font-family: @family;
+        src:url('fonts/@{filename}/@{filename}.eot');
+        src:url('fonts/@{filename}/@{filename}.eot?#iefix') format('embedded-opentype'),
+                url('fonts/@{filename}/@{filename}.woff') format('woff'),
+                url('fonts/@{filename}/@{filename}.ttf') format('truetype'),
+                url('fonts/@{filename}/@{filename}.svg#@{filename}') format('svg');
+        font-weight: @weight;
+        font-style: @style;
+    }
+}
+.font-face(Raleway, RalewayLight, 300);
+.font-face(Raleway, RalewayRegular, 400);
+.font-face(Raleway, RalewaySemiBold, 600);
+.font-face(Raleway, RalewayBold, 700);
+
+.font-face(Open Sans, OpenSansLight, 300);
+.font-face(Open Sans, OpenSansRegular, 400);
+.font-face(Open Sans, OpenSansSemiBold, 600);
+.font-face(Open Sans, OpenSansBold, 700);
+
+.font-face(lobstertwo, lobstertwo-regular, 400);
+.font-face(lobstertwo, lobstertwo-italic, 400, italic);
+.font-face(lobstertwo, lobstertwo-bolditalic, 700, italic);
+.font-face(lobstertwo, lobstertwo-bold, 700);
+
+.font-face(Arabic, Arabic, 400);
+.font-face(Exo2Bold, Exo2Bold, 400);
+
+.font(@f-name, @f-style, @f-weight, @f-url) {
+    @font-face {
+        font-family: @f-name;
+        font-style: @f-style;
+        font-weight: @f-weight;
+        src: url(@f-url) format('woff2');
+    }
+
+}
+
+
+.font('Roboto', normal, 400, '../fonts/roboto-regular-webfont.woff2');
+.font('Roboto', italic, 400, '../fonts/roboto-italic-webfont.woff2');
+.font('Roboto', normal, 700, '../fonts/roboto-bold-webfont.woff2');
+
+
+
+//../fonts
+*/
+
+// font-weight helper:
+
+// 100 Extra Light or Ultra Light;
+// 200 Light or Thin; 300 Book or Demi;                                      
+// 400 Regular or Normal;
+// 500 Medium;
+// 600 Semibold or Demibold;
+// 700 Bold;
+// 800 Black or Extra Bold or Heavy;
+// 900 Extra Black or Fat or Ultra Black
+
+
+.add-font(@font-url, @font-name, @weight: normal, @style: normal, @f-display:swap) {
+  font-family: @font-name;
+  src: url('@{font-folder}@{font-url}.eot'); // IE9 Compat Modes
+  src: url('@{font-folder}@{font-url}.eot?#iefix') format('embedded-opentype'), // IE6-IE8
+  url('@{font-folder}@{font-url}.woff2') format('woff2'), /* Modern Browsers */
+  url('@{font-folder}@{font-url}.woff') format('woff'), // Pretty Modern Browsers
+  url('@{font-folder}@{font-url}.ttf') format('truetype'), // Safari, Android, iOS
+  url('@{font-folder}@{font-url}.svg#@{font-name}') format('svg'); // Legacy iOS
+  font-weight: @weight;
+  font-style: @style;
+  font-display: @f-display;
+}
+
+/*========================
+https://icomoon.io/
+https://icomoon.io/app/#/select/font
+нажимаем на IcoMoon App-> нажимаем на кнопку с книжками add Icon library->
+выбираем нужную библиотеку-> например Font Awesome-> ищем нужные иконки->
+выбираем их-> нажимаем на кнопку Generate Font-> download->
+распакуем архив шрифты из папки font переносим в папку font проекта->
+код из файла style.css вставим в код font.less
+<span class="icon-minus"></span> 
+========================*/
+@font-face{
+    font-family: 'slick';
+    font-weight: normal;
+    font-style: normal;
+
+    src: url('fonts/slick.eot');
+    src: url('fonts/slick.eot?#iefix')format('embedded-opentype'),
+    url('fonts/slick.woff')format('woff'),
+    url('fonts/slick.ttf')format('truetype'),
+    url('fonts/slick.svg#slick')
+    format('svg');
+}
+
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?fzjwo');
+  src:  url('fonts/icomoon.eot?fzjwo#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?fzjwo') format('truetype'),
+    url('fonts/icomoon.woff?fzjwo') format('woff'),
+    url('fonts/icomoon.svg?fzjwo#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-asterisk:before {
+  content: "\f069";
+}
+.icon-plus:before {
+  content: "\f067";
+}
+.icon-minus:before {
+  content: "\f068";
+}
+.icon-glass:before {
+  content: "\f000";
+}
+.icon-star-o:before {
+  content: "\f006";
+}
+.icon-flag:before {
+  content: "\f024";
+}
+.icon-camera:before {
+  content: "\f030";
+}
+.icon-video-camera:before {
+  content: "\f03d";
+}
+.icon-chevron-left:before {
+  content: "\f053";
+}
+.icon-chevron-right:before {
+  content: "\f054";
+}
+.icon-plus-circle:before {
+  content: "\f055";
+}
+.icon-minus-circle:before {
+  content: "\f056";
+}
+.icon-times-circle:before {
+  content: "\f057";
+}
+.icon-check-circle:before {
+  content: "\f058";
+}
+.icon-gift:before {
+  content: "\f06b";
+}
+.icon-plane:before {
+  content: "\f072";
+}
+.icon-chevron-up:before {
+  content: "\f077";
+}
+.icon-chevron-down:before {
+  content: "\f078";
+}
+.icon-globe:before {
+  content: "\f0ac";
+}
+.icon-truck:before {
+  content: "\f0d1";
+}
+.icon-suitcase:before {
+  content: "\f0f2";
+}
+.icon-bell:before {
+  content: "\f0f3";
+}
+.icon-coffee:before {
+  content: "\f0f4";
+}
+.icon-cutlery:before {
+  content: "\f0f5";
+}
+.icon-fighter-jet:before {
+  content: "\f0fb";
+}
+.icon-star-half-empty:before {
+  content: "\f123";
+}
+.icon-star-half-full:before {
+  content: "\f123";
+}
+.icon-star-half-o:before {
+  content: "\f123";
+}
+.icon-fire-extinguisher:before {
+  content: "\f134";
+}
+.icon-rocket:before {
+  content: "\f135";
+}
+.icon-anchor:before {
+  content: "\f13d";
+}
+.icon-eur:before {
+  content: "\f153";
+}
+.icon-euro:before {
+  content: "\f153";
+}
+.icon-gbp:before {
+  content: "\f154";
+}
+.icon-dollar:before {
+  content: "\f155";
+}
+.icon-usd:before {
+  content: "\f155";
+}
+.icon-inr:before {
+  content: "\f156";
+}
+.icon-rupee:before {
+  content: "\f156";
+}
+.icon-cny:before {
+  content: "\f157";
+}
+.icon-jpy:before {
+  content: "\f157";
+}
+.icon-rmb:before {
+  content: "\f157";
+}
+.icon-yen:before {
+  content: "\f157";
+}
+.icon-rouble:before {
+  content: "\f158";
+}
+.icon-rub:before {
+  content: "\f158";
+}
+.icon-ruble:before {
+  content: "\f158";
+}
+.icon-krw:before {
+  content: "\f159";
+}
+.icon-won:before {
+  content: "\f159";
+}
+.icon-bitcoin:before {
+  content: "\f15a";
+}
+.icon-btc:before {
+  content: "\f15a";
+}
+.icon-thumbs-up:before {
+  content: "\f164";
+}
+.icon-thumbs-down:before {
+  content: "\f165";
+}
+.icon-bitbucket:before {
+  content: "\f171";
+}
+.icon-linux:before {
+  content: "\f17c";
+}
+.icon-sun-o:before {
+  content: "\f185";
+}
+.icon-moon-o:before {
+  content: "\f186";
+}
+.icon-bug:before {
+  content: "\f188";
+}
+.icon-automobile:before {
+  content: "\f1b9";
+}
+.icon-car:before {
+  content: "\f1b9";
+}
+.icon-cab:before {
+  content: "\f1ba";
+}
+.icon-taxi:before {
+  content: "\f1ba";
+}
+.icon-tree:before {
+  content: "\f1bb";
+}
+.icon-ra:before {
+  content: "\f1d0";
+}
+.icon-rebel:before {
+  content: "\f1d0";
+}
+.icon-resistance:before {
+  content: "\f1d0";
+}
+.icon-qq:before {
+  content: "\f1d6";
+}
+.icon-futbol-o:before {
+  content: "\f1e3";
+}
+.icon-soccer-ball-o:before {
+  content: "\f1e3";
+}
+.icon-binoculars:before {
+  content: "\f1e5";
+}
+.icon-bicycle:before {
+  content: "\f206";
+}
+.icon-bus:before {
+  content: "\f207";
+}
+.icon-forumbee:before {
+  content: "\f211";
+}
+.icon-diamond:before {
+  content: "\f219";
+}
+.icon-ship:before {
+  content: "\f21a";
+}
+.icon-user-secret:before {
+  content: "\f21b";
+}
+.icon-motorcycle:before {
+  content: "\f21c";
+}
+.icon-mars-stroke:before {
+  content: "\f229";
+}
+.icon-mars-stroke-v:before {
+  content: "\f22a";
+}
+.icon-bed:before {
+  content: "\f236";
+}
+.icon-hotel:before {
+  content: "\f236";
+}
+.icon-train:before {
+  content: "\f238";
+}
+.icon-subway:before {
+  content: "\f239";
+}
+.icon-optin-monster:before {
+  content: "\f23c";
+}
+.icon-reddit-alien:before {
+  content: "\f281";
+}
+.icon-modx:before {
+  content: "\f285";
+}
+.icon-fort-awesome:before {
+  content: "\f286";
+}
+.icon-shopping-basket:before {
+  content: "\f291";
+}
+.icon-volume-control-phone:before {
+  content: "\f2a0";
+}
+.icon-sign-language:before {
+  content: "\f2a7";
+}
+.icon-signing:before {
+  content: "\f2a7";
+}
+.icon-snapchat-ghost:before {
+  content: "\f2ac";
+}
+.icon-pied-piper:before {
+  content: "\f2ae";
+}
+.icon-themeisle:before {
+  content: "\f2b2";
+}
+.icon-bath:before {
+  content: "\f2cd";
+}
+.icon-bathtub:before {
+  content: "\f2cd";
+}
+.icon-s15:before {
+  content: "\f2cd";
+}
+.icon-grav:before {
+  content: "\f2d6";
+}
+.icon-snowflake-o:before {
+  content: "\f2dc";
+}
+.icon-alarm:before {
+  content: "\e950";
+}
+.icon-user:before {
+  content: "\e971";
+}
+.icon-quotes-left:before {
+  content: "\e977";
+}
+.icon-quotes-right:before {
+  content: "\e978";
+}
+.icon-hammer:before {
+  content: "\e996";
+}
+.icon-rocket1:before {
+  content: "\e9a5";
+}
+.icon-magnet:before {
+  content: "\e9ab";
+}
+.icon-star-empty:before {
+  content: "\e9d7";
+}
+.icon-wink:before {
+  content: "\e9e7";
+}
+.icon-grin:before {
+  content: "\e9e9";
+}
+.icon-angry:before {
+  content: "\e9ed";
+}
+.icon-crying:before {
+  content: "\ea01";
+}
+.icon-mail:before {
+  content: "\ea83";
+}
+.icon-google-plus2:before {
+  content: "\ea8c";
+}
+.icon-facebook2:before {
+  content: "\ea91";
+}
+.icon-telegram:before {
+  content: "\ea95";
+}
+.icon-vk:before {
+  content: "\ea98";
+}
+.icon-rss2:before {
+  content: "\ea9c";
+}
+.icon-vimeo2:before {
+  content: "\eaa1";
+}
+.icon-github:before {
+  content: "\eab0";
+}
+.icon-tumblr2:before {
+  content: "\eaba";
+}
+.icon-appleinc:before {
+  content: "\eabe";
+}
+.icon-skype:before {
+  content: "\eac5";
+}
+.icon-linkedin:before {
+  content: "\eac9";
+}
+
+
+// museosanscyrl Light
+@font-face {
+  .add-font('MuseoSansCyrl-300/museosanscyrl-300woff', 'museosanscyrl', 300);
+}
+
+// museosanscyrl Medium
+@font-face {
+  .add-font('MuseoSansCyrl-500/museosanscyrl-500', 'museosanscyrl', 500);
+}
+
+// museosanscyrl Bold
+@font-face {
+  .add-font('MuseoSansCyrl-700/museosanscyrl-700', 'museosanscyrl', 700);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

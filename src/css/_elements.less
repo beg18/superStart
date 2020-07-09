@@ -1,0 +1,239 @@
+// out: null
+@import "fonts";
+
+
+/*===========================
+Table of Content
+
+1. Wrappers
+2. Buttons
+3. Form elements
+4. Font family
+5. Typography
+===========================*/
+
+
+
+/* 1. Wrappers
+===========================*/
+/*
+.debug {
+    .debug(rgba(0, 0, 0, 0.5), 1px solid #ff0);
+}
+*/
+
+*, *:before,
+*, *:after {
+    box-sizing: border-box;
+}
+
+.wrapper {
+    .wrapper();
+    .xs-block({
+        .max-width(540);
+    });
+
+    .sm-block({
+        .max-width(720);
+    });
+
+    .md-block({
+        .max-width(960);
+    });
+
+    .lg-block({
+        .max-width(1140);
+    });
+}
+
+
+
+.visually-hidden {
+    .visually-hidden();
+}
+
+/* 2. Buttons
+===========================*/
+
+
+/* 3. Form elements
+===========================*/
+*::-webkit-input-placeholder {
+    color: #666;
+    opacity: 1;
+}
+*:-moz-placeholder {
+    color: #666;
+    opacity: 1;
+}
+*::-moz-placeholder {
+    color: #666;
+    opacity: 1;
+}
+*:-ms-input-placeholder {
+    color: #666;
+    opacity: 1;
+}
+
+body input:focus:required:invalid,
+body textarea:focus:required:invalid {
+
+}
+body input:required:valid,
+body textarea:required:valid {
+
+}
+
+/*4. Font family
+ @import url('https://fonts.googleapis.com/css?family=Raleway:300,400,600,700');
+
+
+.ff-pt-serif (@font-weight:400; @font-style: normal;){
+    font-family: 'PTSerif', @ff-s-serifArial;
+    font-weight: @font-weight;
+    font-style: @font-style;
+}
+
+===========================*/
+.ff-museosanscyrl (@font-weight:500; @font-style: normal;){
+    font-family: 'museosanscyrl', @ff-s-serifArial;
+    font-weight: @font-weight;
+    font-style: @font-style;
+}
+
+.ff-icomoon (@font-weight:400; @font-style: normal;){
+    font-family: 'icomoon' !important;
+    font-weight: @font-weight;
+    font-style: @font-style;
+}
+
+/*5. Typography
+===========================*/
+html, body {
+    height: 100%;
+}
+
+html {
+    box-sizing: border-box;
+
+    .html-fz(16);
+
+    .sm-block({
+        .html-fz(15);
+    });
+
+    .xs-block({
+        .html-fz(14);
+    });
+
+    .xxs-block({
+        .html-fz(13);
+    });
+}
+
+body {
+    height: auto !important;
+    min-height: 100%;
+    color: @base_color;
+    overflow-x: hidden;
+    .min-width(300);
+    .display-container();
+    display: flex;
+    flex-direction: column;
+}
+
+header,
+footer {
+    flex: 0 0 auto;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+.h1-fontSize() { .rem-size(43); }
+.h2-fontSize() { .rem-size(34); }
+.h3-fontSize() { .rem-size(17); }
+.h4-fontSize() { .rem-size(16); }
+.h5-fontSize() { .rem-size(15); }
+.h6-fontSize() { .rem-size(13); }
+
+
+h1 {
+    .h1-fontSize;
+}
+
+
+h2 {
+    .h2-fontSize;
+}
+
+h3 {
+    .h3-fontSize;
+}
+
+h4 {
+    .h4-fontSize;
+}
+
+h5 {
+    .h5-fontSize;
+}
+
+h6 {
+    .h6-fontSize;
+}
+
+ul, ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    &:focus {
+        outline: none;
+    }
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.example-img{
+    width: 100%;
+}
+
+.img-responsive{
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.parent{
+background-image: url(data:image/gif;base64,R0lGODlhCgAIAIABAN3d3f///yH5BAEAAAEALAAAAAAKAAgAAAINjAOnyJv2oJOrVXrzKQA7);
+}
+
+.section__header {
+    .display-container();
+    .min-max-per(300, 80, 15);
+    .center-align();
+    .margin-bottom(30);
+}
+
+.section__title {
+    .h2-rem-ttu(36);
+    .ff-museosanscyrl(700);
+    .c(@success);
+}
+
+.section__descr {
+    .rem-size(18);
+    .ff-museosanscyrl();
+}

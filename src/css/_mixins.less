@@ -1,0 +1,34 @@
+
+/*
+Add your png file to source images dir (ex. logo.png and icon.png)
+Add styles to your less file:
+.logo {
+  .sprite(@s-logo);
+}
+.icon {
+  .sprite(@s-icon);
+}
+*/
+
+.spriteWidth(@sprite) {
+  width: extract(@sprite, 5);
+}
+
+.spriteHeight(@sprite) {
+  height: extract(@sprite, 6);
+}
+
+.spritePosition(@sprite) {
+  background-position: extract(@sprite, 3) extract(@sprite, 4);
+}
+
+.spriteImage(@sprite) {
+  background-image: extract(@sprite, 9);
+}
+
+.sprite(@sprite) {
+  .spriteImage(@sprite);
+  .spritePosition(@sprite);
+  .spriteWidth(@sprite);
+  .spriteHeight(@sprite);
+}
