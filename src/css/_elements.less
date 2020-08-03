@@ -28,9 +28,11 @@ Table of Content
 }
 
 .wrapper {
+    .display-container();
     .wrapper();
-    .xs-block({
-        .max-width(540);
+   /* .xs-block({
+        //.max-width(540);
+        .max-width-per(100);
     });
 
     .sm-block({
@@ -43,9 +45,25 @@ Table of Content
 
     .lg-block({
         .max-width(1140);
-    });
+    });*/
 }
 
+.ibg {
+       background-position: center;
+       background-size: cover;
+       background-repeat: no-repeat;
+       position: relative;
+
+       img {
+            width: 0;
+            height: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            visibility: hidden;
+       }
+}
 
 
 .visually-hidden {
@@ -95,13 +113,38 @@ body textarea:required:valid {
 }
 
 ===========================*/
-.ff-museosanscyrl (@font-weight:500; @font-style: normal;){
+.ff-museosanscyrl (@font-weight:500; @font-style: normal){
     font-family: 'museosanscyrl', @ff-s-serifArial;
     font-weight: @font-weight;
     font-style: @font-style;
 }
 
-.ff-icomoon (@font-weight:400; @font-style: normal;){
+.ff-BravoRG (@font-weight:400; @font-style: normal){
+    font-family: 'BravoRG', @ff-s-serifArial;
+    font-weight: @font-weight;
+    font-style: @font-style;
+}
+
+.ff-ceremonious_one (@font-weight:400; @font-style: normal){
+    font-family: 'CeremoniousOne' , @ff-s-serifArial;
+    font-weight: @font-weight;
+    font-style: @font-style;
+}
+
+.ff-PFDin (@font-weight:400; @font-style: normal){
+    font-family: 'PFDin', @ff-s-serifArial;
+    font-weight: @font-weight;
+    font-style: @font-style;
+}
+
+.ff-PTSans (@font-weight:400; @font-style: normal){
+    font-family: 'PTSans', @ff-s-serifArial;
+    font-weight: @font-weight;
+    font-style: @font-style;
+}
+
+
+.ff-icomoon (@font-weight:400; @font-style: normal){
     font-family: 'icomoon' !important;
     font-weight: @font-weight;
     font-style: @font-style;
@@ -220,20 +263,5 @@ fieldset {
 background-image: url(data:image/gif;base64,R0lGODlhCgAIAIABAN3d3f///yH5BAEAAAEALAAAAAAKAAgAAAINjAOnyJv2oJOrVXrzKQA7);
 }
 
-.section__header {
-    .display-container();
-    .min-max-per(300, 80, 15);
-    .center-align();
-    .margin-bottom(30);
-}
 
-.section__title {
-    .h2-rem-ttu(36);
-    .ff-museosanscyrl(700);
-    .c(@success);
-}
 
-.section__descr {
-    .rem-size(18);
-    .ff-museosanscyrl();
-}

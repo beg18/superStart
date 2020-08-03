@@ -12,6 +12,23 @@ $.prototype.html = function(content) {
     return this;
 };
 
+$.prototype.text = function(text) {
+    for (let i = 0; i < this.length; i++) {
+        if (text || typeof text !== 'undefined') {
+            this[i].textContent = text;
+            return this
+        } if (this.tagName.toLowerCase() === 'input') {
+            return this[i].value.trim()
+        } else {
+            return this[i].textContent.trim();
+        }
+    }
+
+    return this;
+};
+
+
+
 $.prototype.eq = function(i) {
     const swap = this[i];
     const objLength = Object.keys(this).length;

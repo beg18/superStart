@@ -61,7 +61,7 @@ const path = {
     // За изменениями каких файлов мы хотим наблюдать
     watch: {
         html: './src/*.html',
-        css: './src/css/**/*.less',
+        css: './src/css/*.less',
         js: './src/js/**/*.js',
         allimg: './src/i/**/*.{png,jpg,jpeg,svg,raw,gif,ico}',
         webp: './src/i/*.{png,jpg,jpeg}',
@@ -265,8 +265,8 @@ gulp.task("build",
         'sprites:assets',
         'svg:assets',
         'fonts:assets',
-        'gcmd:assets')
-    );
+        'gcmd:assets'
+        ));
 
 gulp.task("prod", () => {
 

@@ -1,145 +1,27 @@
-.home {
-  .padding-top(100);
-  .padding-bottom(50);
-}
 
-.home__wrap {
-  .row-flex();
-  .justify-bet();
-  .align-items-center();
-  .justify-center-md();
-}
-
-.home__item {
-  .col();
-  .margin-bottom-md(20);
-  .beam(4);
-  .beam-md(5);
-  .beam-sm(8);
-  .beam-xs(10);
-  .beam-xxs(12);
-}
-
-.home-block {
-  .width-per(100);
-  .padding(30, 30);
-  .z-depth-1(@dark);
-}
-
-.home-block__heading {
-  .display-container();
-  .margin-bottom(20);
-  .center-align();
-}
-
-.home-block__title {
-  .h3-rem-ttu(24);
-  .ff-museosanscyrl(700);
-  .c(dark, @dark);
-}
-
-.home-block__descr {
-  .rem-size(18);
-  .line-height-rem(22);
-  .c(light, @dark);
-}
-
-.home-block__contents {
-  .ff-museosanscyrl();
-  p {
-    .rem-size-mb(16);
-    .c(@dark);
-  }
-}
-
-.home-block__footer {
-  .padding(15, 30);
-  .center-align();
-
-  a {
-    text-decoration: none;
-    text-transform: uppercase;
-  }
-}
-/*==========================CSS======================*/
-html {
-    /* overflow-x: hidden; */
-    font-size: 10px;
-}
-.status {
-    display: block;
-    color: red;
-}
-
-.faded {
-    animation-name: faded;
-    animation-duration: 1.5s;
-}
-
-@keyframes faded {
-    from {
-    opacity: 0.1;
+.pageup {
+    opacity: 0;
+    width: 36px ;
+    height: 36px;
+   .round(36);
+   .bgc(@color);
+    position: fixed;
+    bottom: 300px;
+    right: 5%;
+    z-index: 30;
+    //background-color: #fff;
+    cursor: pointer;
+    border: 1px solid white;
+    transition: 1s all;
+   .center-align();
+  text-decoration: none;
+  .rem-size(20);
+  .c(@white);
+z-index: 20;
+  .before({
+    span.icon-chevron-up {
+      .rem-size(26);
+      .c(@white);
     }
-    to {
-    opacity: 1;
-    }
-}
-
-/* Timer */
-.timer1 {
-  padding: 10px;
-  border: 1px solid grey;
-  background-color: white;
-  color: black;
-  border-radius: 10px;
-  text-align: center;
-  width: 360px;
-  height: 150px;
-  margin: 10px auto;
-}
-
-.container1 {
-  display: inline-block;
-}
-.numbers1 {
-  display: block;
-  float: left;
-  color: white;
-  font-size: 40px;
-  margin-right: 10px;
-  div {
-    margin-bottom: 10px;
-  }
-
-}
-
-.timer1 span{
-  margin-right: 2px;
-  background-color: #575757;
-  border-radius: 7px;
-  padding: 4px;
-}
-.description1{
-  font-size: 18px;
-  text-align: center;
-  color: black;
-}
-
-
-@media (max-width: 530px) {
- .sale .eTimer {
-    font-size: 1rem;
-  }
-}
-
-/* small devices, tablets */
-@media only screen and (max-width: 768px) {
-.animated {
-    /*css transitions*/
-    transition-property: none !important;
-    /*css transforms*/
-    transform: none !important;
-    /*css animations*/
-    animation: none !important;
-}
+  });
 }

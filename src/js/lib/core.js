@@ -1,6 +1,7 @@
-const $ = function(selector) {
-    return new $.prototype.init(selector);
+const $ = function(selector, context) {
+    return new $.prototype.init(selector, context);
 };
+
 
 $.prototype.init = function(selector) {
     if (!selector) {
@@ -17,7 +18,7 @@ $.prototype.init = function(selector) {
     this.length = document.querySelectorAll(selector).length;
     return this;
 };
-
+const array = Array.prototype;
 $.prototype.init.prototype = $.prototype;
 
 window.$ = $;

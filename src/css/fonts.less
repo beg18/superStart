@@ -54,7 +54,23 @@ http://chimir.ru/post/39:
 .font('Roboto', italic, 400, '../fonts/roboto-italic-webfont.woff2');
 .font('Roboto', normal, 700, '../fonts/roboto-bold-webfont.woff2');
 
+ .font( $font_name, //@font-url, $file_name, $weight, $style) {
+	@font-face {
+		font-family: $font_name;
+		font-display: swap;
+		src: url('@{font-folder}@{font-url}.woff') format("woff"),url('@{font-folder}@{font-url}.woff2') format("woff2");
+		font-weight: #{$weight};
+		font-style: #{$style};
+	}
+}
+// museosanscyrl Medium
+.font('MuseoSansCyrl-500', 'museosanscyrl-500', 'MuseoSans', '500','normal');
 
+
+// museosanscyrl Bold
+@font-face {
+  .add-font('MuseoSansCyrl-700/museosanscyrl-700', 'museosanscyrl', 700);
+}
 
 //../fonts
 */
@@ -83,7 +99,7 @@ http://chimir.ru/post/39:
   font-style: @style;
   font-display: @f-display;
 }
-
+   
 /*========================
 https://icomoon.io/
 https://icomoon.io/app/#/select/font
@@ -515,6 +531,36 @@ https://icomoon.io/app/#/select/font
   .add-font('MuseoSansCyrl-700/museosanscyrl-700', 'museosanscyrl', 700);
 }
 
+// BravoRG Regular
+@font-face {
+  .add-font('BravoRGRegular/BravoRGRegular', 'BravoRG', 400);
+}
+
+// BravoRG Regular
+@font-face {
+  .add-font('BravoRGRegular/BravoRGRegular', 'BravoRG', 400);
+}
+
+// CeremoniousOne Regular
+@font-face {
+  .add-font('ceremoniousone/ceremoniousone', 'CeremoniousOne', 400);
+}
+
+// pfdintextcondpro Regular
+@font-face {
+  .add-font('pfdintextcondpro-regular/pfdintextcondpro-regular', 'PFDin', 400);
+}
+
+// pfdintextcondpro Medium
+@font-face {
+  .add-font('pfdintextcondpro-medium/pfdintextcondpro-medium', 'PFDin', 500);
+}
+
+
+// PTSans Regular
+@font-face {
+  .add-font('PTSans-Regular/PTSans-Regular', 'PTSans', 400);
+}
 
 
 
